@@ -15,7 +15,7 @@ public class HomeWork4 {
     }
 
     public static void main(String[] args) {
-        task9();
+        task7();
     }
 
     public static void task1() {
@@ -39,7 +39,7 @@ public class HomeWork4 {
         for (int i : ints) {
             sum += i;
         }
-        System.out.println("Средняя сумма трат за месяц составила " + sum / 30 + " рублей.");
+        System.out.println("Средняя сумма трат за месяц составила " + sum / ints.length + " рублей.");
     }
 
     public static void task4() {
@@ -53,7 +53,9 @@ public class HomeWork4 {
         int[][] matrix = new int[3][3];
         for (int i = 0; i < matrix[0].length; i++) {
             for (int j = 0; j < matrix.length; j++) {
-                matrix[i][j] = 1;
+                if (i % 2 == 0 && j % 2 == 0 || i == j) {
+                    matrix[i][j] = 1;
+                }
             }
         }
         for (int[] row : matrix) {
@@ -75,19 +77,22 @@ public class HomeWork4 {
 
     public static void task7() {
         int[] arrayToReverse = {5, 4, 3, 2, 1};
-        for (int i = arrayToReverse.length - 1; i >= 0; i--) {
-            System.out.print(arrayToReverse[i] + " ");
+        for (int i = 0, j = arrayToReverse.length - 1; i < j; i++, j--) {
+            int temp = arrayToReverse[i];
+            arrayToReverse[i] = arrayToReverse[j];
+            arrayToReverse[j] = temp;
         }
+        System.out.println(Arrays.toString(arrayToReverse));
     }
 
     public static void task8() {
         int[] ints = {-6, 2, 5, -8, 8, 10, 4, -7, 12, 1};
-        one:
+        boolean flag = true;
         for (int i = 0; i < ints.length - 1; i++) {
             for (int j = i + 1; j < ints.length; j++) {
-                if (ints[i] + ints[j] == -2) {
+                if (ints[i] + ints[j] == -2 && flag) {
                     System.out.println(ints[i] + " " + ints[j]);
-                    break one;
+                    flag = false;
                 }
             }
         }

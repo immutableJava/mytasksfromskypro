@@ -1,11 +1,9 @@
 package pro.sky.java.course1.lesson5;
 
-import java.util.Locale;
-
 public class HomeWork5 {
 
     public static void main(String[] args) {
-        task8();
+        task7();
     }
 
     public static void task1() {
@@ -18,7 +16,7 @@ public class HomeWork5 {
 
     public static void task2() {
         String fullName = "Ivanov Ivan Ivanovich";
-        System.out.println("Данные ФИО сотрудника для заполнения отчета – " + fullName.toUpperCase(Locale.ROOT));
+        System.out.println("Данные ФИО сотрудника для заполнения отчета – " + fullName.toUpperCase());
     }
 
     public static void task3() {
@@ -46,23 +44,31 @@ public class HomeWork5 {
 
     public static void task6() {
         String fullName = "ivanov ivan ivanovich";
-        String[] splattedFullName = fullName.split(" ");
-        String[] copyOfSplattedFullName = new String[splattedFullName.length];
-        for (int i = 0; i < splattedFullName.length; i++) {
-            copyOfSplattedFullName[i] = Character.toUpperCase(splattedFullName[i].toCharArray()[0]) + splattedFullName[i].substring(1);
+        StringBuilder sb = new StringBuilder(fullName);
+        for (int i = 0; i < sb.length(); i++) {
+            if (sb.charAt(i) == ' ') {
+                sb.setCharAt(i + 1, Character.toUpperCase(sb.charAt(i + 1)));
+            }
+            if (i == 0) {
+                sb.setCharAt(i, Character.toUpperCase(sb.charAt(i)));
+            }
         }
-        StringBuilder result = new StringBuilder();
-        for (String s : copyOfSplattedFullName) {
-            result.append(s);
-            result.append(" ");
-        }
-        System.out.println("Верное написание ФИО сотрудника с заглавных букв – " + result.toString());
+        System.out.println("Верное написание ФИО сотрудника с заглавных букв – " + sb.toString());
     }
 
     public static void task7() {
-        String s1 = "123";
-        String s2 = "456";
-        StringBuilder stringBuilder = new StringBuilder(s1 + s2);
+        String s1 = "135";
+        String s2 = "246";
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0, j = 0, k = 0; i < 6; i++) {
+            if (i % 2 == 0) {
+                stringBuilder.append(s1.charAt(j));
+                j++;
+            } else {
+                stringBuilder.append(s2.charAt(k));
+                k++;
+            }
+        }
         System.out.println("Данные строки - " + stringBuilder.toString());
     }
 
@@ -71,8 +77,11 @@ public class HomeWork5 {
         char[] chars = str.toCharArray();
         StringBuilder result = new StringBuilder();
         for (int i = 1; i < chars.length; i++) {
-            if (chars[i] == chars[i - 1])
+            if (i < chars.length - 1 && chars[i] == chars[i - 1] && chars[i] != chars[i + 1]) {
                 result.append(chars[i]);
+            } else if (chars[i] == chars[i - 1] && chars[i] != chars[i + 1]) {
+                result.append(chars[i]);
+            }
         }
         System.out.println(result.toString());
     }

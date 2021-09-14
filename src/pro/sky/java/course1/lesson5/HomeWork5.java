@@ -44,7 +44,7 @@ public class HomeWork5 {
 
     public static void task6() {
         String fullName = "ivanov ivan ivanovich";
-        StringBuilder sb = new StringBuilder(fullName);
+        StringBuilder sb = new StringBuilder(fullName.trim());
         for (int i = 0; i < sb.length(); i++) {
             if (sb.charAt(i) == ' ') {
                 sb.setCharAt(i + 1, Character.toUpperCase(sb.charAt(i + 1)));
@@ -60,14 +60,9 @@ public class HomeWork5 {
         String s1 = "135";
         String s2 = "246";
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0, j = 0, k = 0; i < 6; i++) {
-            if (i % 2 == 0) {
-                stringBuilder.append(s1.charAt(j));
-                j++;
-            } else {
-                stringBuilder.append(s2.charAt(k));
-                k++;
-            }
+        for (int i = 0; i < 3; i++) {
+            stringBuilder.append(s1.charAt(i));
+            stringBuilder.append(s2.charAt(i));
         }
         System.out.println("Данные строки - " + stringBuilder.toString());
     }
@@ -79,7 +74,7 @@ public class HomeWork5 {
         for (int i = 1; i < chars.length; i++) {
             if (i < chars.length - 1 && chars[i] == chars[i - 1] && chars[i] != chars[i + 1]) {
                 result.append(chars[i]);
-            } else if (chars[i] == chars[i - 1] && chars[i] != chars[i + 1]) {
+            } else if (chars[i] == chars[i - 1]) {
                 result.append(chars[i]);
             }
         }

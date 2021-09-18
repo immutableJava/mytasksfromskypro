@@ -6,10 +6,10 @@ public class HomeWork6 {
     }
 
     public static void checkIsLeapYear(int year) {
-        if (!(year % 100 == 0 && year % 400 != 0 || year % 4 != 0)) {
-            System.out.println(year + " - високосный год");
-        } else {
+        if (year % 100 == 0 && year % 400 != 0 || year % 4 != 0) {
             System.out.println(year + " - не високосный год");
+        } else {
+            System.out.println(year + " - високосный год");
         }
     }
 
@@ -29,7 +29,7 @@ public class HomeWork6 {
         }
     }
 
-    public static String calculateDeliveryDistance(int deliveryDistance) {
+    public static int calculateDeliveryDistance(int deliveryDistance) {
         int day = 1;
         if (deliveryDistance >= 20) {
             day++;
@@ -37,7 +37,7 @@ public class HomeWork6 {
         if (deliveryDistance >= 60) {
             day++;
         }
-        return "Количество дней для доставки : " + day;
+        return day;
     }
 
     public static void checkDoubles(String str) {
@@ -59,12 +59,12 @@ public class HomeWork6 {
         }
     }
 
-    public static String calculateAverageSalary(int[] ints) {
+    public static double calculateAverageSalary(int[] ints) {
         double sum = 0;
         for (int i : ints) {
             sum += i;
         }
-        return "Средняя сумма трат за месяц составила " + sum / ints.length + " рублей.";
+        return sum / ints.length;
     }
 
     public static int[] generateRandomArray() {

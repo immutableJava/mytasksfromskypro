@@ -8,7 +8,6 @@ public class Library {
     }
 
     public void addBook(Book book) {
-        book = new Book(book.getName(), book.getDate(), book.getAuthor());
         for (int i = 0; i < books.length; i++) {
             if (books[i] == null) {
                 books[i] = book;

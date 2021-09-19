@@ -1,5 +1,6 @@
 package pro.sky.java.course1.lesson7;
 
+
 public class Author {
     private final String name;
     private final String surname;

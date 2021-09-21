@@ -7,7 +7,7 @@ public class HomeWork7 {
         Author secondAuthor = new Author("Chuck", "Palahniuk");
         Book firstBook = new Book("1984", "1949", firstAuthor);
         Book secondBook = new Book("Invisible Monsters", "1990", secondAuthor);
-        secondBook.setDate("1999");
+        secondBook.setDateOfPublish("фывощфы");
         Library library = new Library(5);
         library.addBook(firstBook);
         library.addBook(secondBook);

@@ -11,12 +11,15 @@ public class Library {
         for (int i = 0; i < books.length; i++) {
             if (books[i] == null) {
                 books[i] = book;
-                break;
+                return;
+            }
+            if (i == books.length - 1) {
+                System.out.println("Место для книги не найдено!");
             }
         }
     }
 
-    public void print(Book[] books) {
+    public void convertToNewFormat(Book[] books) {
         for (Book book : books) {
             if (book != null) {
                 System.out.printf("%s %s: %s: %s", book.getAuthor().getName(), book.getAuthor().getSurname(), book.getName(), book.getDate());
@@ -24,7 +27,7 @@ public class Library {
         }
     }
 
-    public void info(String name) {
+    public void takeInfoAboutBook(String name) {
         for (Book book : books) {
             if (book.getName().equals(name)) {
                 System.out.printf("%s by %s %s was published in %s", book.getName(), book.getAuthor().getName(), book.getAuthor().getSurname(), book.getDate());
@@ -35,7 +38,7 @@ public class Library {
     public void changeDate(String name, String date) {
         for (Book book : books) {
             if (book.getName().equals(name)) {
-                book.setDate(date);
+                book.setDateOfPublish(date);
             }
         }
     }

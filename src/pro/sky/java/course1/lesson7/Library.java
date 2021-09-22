@@ -35,7 +35,7 @@ public class Library {
         }
     }
 
-    public void changeDate(String name, String date) {
+    public void changeDate(String name, int date) {
         for (Book book : books) {
             if (book.getName().equals(name)) {
                 book.setDateOfPublish(date);

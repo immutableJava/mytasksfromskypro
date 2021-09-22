@@ -3,9 +3,9 @@ package pro.sky.java.course1.lesson7;
 public class Book {
     private final String name;
     private final Author author;
-    private String dateOfPublish;
+    private int dateOfPublish;
 
-    public Book(String name, String dateOfPublish, Author author) {
+    public Book(String name, int dateOfPublish, Author author) {
         this.name = name;
         this.dateOfPublish = dateOfPublish;
         this.author = author;
@@ -16,17 +16,11 @@ public class Book {
     }
 
 
-    public String getDate() {
+    public int getDate() {
         return dateOfPublish;
     }
 
-    public void setDateOfPublish(String dateOfPublish) {
-        try {
-            int i = Integer.parseInt(dateOfPublish);
-        } catch (Exception e) {
-            System.out.println("Это не дата!");
-            return;
-        }
+    public void setDateOfPublish(int dateOfPublish) {
         this.dateOfPublish = dateOfPublish;
     }
 

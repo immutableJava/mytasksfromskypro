@@ -19,7 +19,7 @@ public class Library {
         }
     }
 
-    public void convertToNewFormat(Book[] books) {
+    public void convertToNewFormat() {
         for (Book book : books) {
             if (book != null) {
                 System.out.printf("%s %s: %s: %s", book.getAuthor().getName(), book.getAuthor().getSurname(), book.getName(), book.getDate());

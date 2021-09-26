@@ -12,11 +12,9 @@ public class Employee {
         this.salary = salary;
         this.department = department;
         id = counter;
+        counter++;
     }
 
-    public static int getCounter() {
-        return counter;
-    }
 
     public String getFullName() {
         return fullName;

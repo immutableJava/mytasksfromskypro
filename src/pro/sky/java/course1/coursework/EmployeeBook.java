@@ -21,7 +21,7 @@ public class EmployeeBook {
         return result;
     }
 
-    public Employee FindEmpWithMinSalary() {
+    public Employee findEmpWithMinSalary() {
         int indexOfMinSalary = 0;
         for (int i = 1; i < employees.length; i++) {
             if (employees[i].getSalary() < employees[0].getSalary()) {
@@ -31,10 +31,10 @@ public class EmployeeBook {
         return employees[indexOfMinSalary];
     }
 
-    public Employee FindEmpWithMaxSalary() {
+    public Employee findEmpWithMaxSalary() {
         int indexOfMaxSalary = 0;
         for (int i = 1; i < employees.length; i++) {
-            if (employees[i].getSalary() > employees[0].getSalary()) {
+            if (employees[i].getSalary() > employees[indexOfMaxSalary].getSalary()) {
                 indexOfMaxSalary = i;
             }
         }
@@ -57,7 +57,7 @@ public class EmployeeBook {
         }
     }
 
-    public Employee FindEmpWithMinSalaryInCurrentDepartment(int department) {
+    public Employee findEmpWithMinSalaryInCurrentDepartment(int department) {
         int indexOfMinSalary = 0;
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getDepartment() == department) {
@@ -75,7 +75,7 @@ public class EmployeeBook {
         return employees[indexOfMinSalary];
     }
 
-    public Employee FindEmpWithMaxSalaryInCurrentDepartment(int department) {
+    public Employee findEmpWithMaxSalaryInCurrentDepartment(int department) {
         int indexOfMaxSalary = 0;
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getDepartment() == department) {
@@ -147,10 +147,7 @@ public class EmployeeBook {
         }
     }
 
-    public void addNewEmployee() {
-        String fullName = "Tamerlan Radzhabov";
-        int salary = 75_000;
-        int department = 2;
+    public void addNewEmployee(String fullName, double salary, int department) {
         Employee newEmployee = new Employee(fullName, salary, department);
         for (Employee employee : employees) {
             if (employee == null) {
@@ -159,20 +156,28 @@ public class EmployeeBook {
         }
     }
 
-    public void deleteEmployee() {
-        String fullName = "Tamerlan Radzhabov";
-        int id = Employee.getCounter();
+    public void deleteEmployee(String fullName, int id) {
         for (Employee employee : employees) {
             if (employee.getId() == id && employee.getFullName().equals(fullName))
                 employee = null;
         }
     }
 
-    public void refactorEmployee(String fullName) {
+    public void changeSalary(String fullName, double salary) {
         for (Employee employee : employees) {
             if (employee.getFullName().equals(fullName)) {
-                employee.setSalary(50_000);
-                employee.setDepartment(4);
+                employee.setSalary(salary);
+            }
+        }
+    }
+
+    public void changeDepartment(String fullName, double department) {
+        if (department < 1 && department > 5) {
+            System.out.println("Данного отдела не существует.");
+        }
+        for (Employee employee : employees) {
+            if (employee.getFullName().equals(fullName)) {
+                employee.setSalary(department);
             }
         }
     }
@@ -191,13 +196,4 @@ public class EmployeeBook {
         System.out.println(result);
     }
 
-    public void changeDepAndSalary(String fullName, int dep, int salary) {
-
-        for (Employee employee : employees) {
-            if (employee.getFullName().equals(fullName)) {
-                employee.setDepartment(dep);
-                employee.setSalary(salary);
-            }
-        }
-    }
 }

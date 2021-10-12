@@ -7,12 +7,8 @@ public class ServiceStation {
             for (int i = 0; i < transport.getWheelsCount(); i++) {
                 transport.updateTyre();
             }
-            if (transport instanceof Car || transport instanceof Truck) {
-                transport.checkEngine();
-            }
-            if (transport instanceof Truck) {
-                transport.checkTrailer();
-            }
+            transport.checkEngine();
+            transport.checkTrailer();
         }
     }
 }

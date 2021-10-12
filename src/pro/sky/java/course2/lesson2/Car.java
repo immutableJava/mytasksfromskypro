@@ -1,12 +1,26 @@
 package pro.sky.java.course2.lesson2;
 
 public class Car extends Transport {
+    private final String modelName;
+    private final int wheelsCount;
 
-    public void updateTyre() {
-        System.out.println("Меняем покрышку");
+    public Car(String modelName, int wheelsCount) {
+        this.modelName = modelName;
+        this.wheelsCount = wheelsCount;
     }
 
-    public void checkEngine() {
-        System.out.println("Проверяем двигатель");
+    @Override
+    public String getModelName() {
+        return modelName;
+    }
+
+    @Override
+    public int getWheelsCount() {
+        return wheelsCount;
+    }
+
+    @Override
+    public void checkTrailer() {
+
     }
 }

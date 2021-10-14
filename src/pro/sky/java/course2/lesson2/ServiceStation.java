@@ -7,8 +7,12 @@ public class ServiceStation {
             for (int i = 0; i < transport.getWheelsCount(); i++) {
                 transport.updateTyre();
             }
-            transport.checkEngine();
-            transport.checkTrailer();
+            if (transport.getClass() == Car.class) {
+                ((Car) transport).checkEngine();
+            } else if (transport.getClass() == Truck.class) {
+                ((Truck) transport).checkEngine();
+                ((Truck) transport).checkTrailer();
+            }
         }
     }
 }

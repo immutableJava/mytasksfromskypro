@@ -19,13 +19,4 @@ public class Bicycle extends Transport {
         return wheelsCount;
     }
 
-    @Override
-    public void checkEngine() {
-
-    }
-
-    @Override
-    public void checkTrailer() {
-
-    }
 }

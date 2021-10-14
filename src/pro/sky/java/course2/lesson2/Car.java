@@ -19,8 +19,8 @@ public class Car extends Transport {
         return wheelsCount;
     }
 
-    @Override
-    public void checkTrailer() {
-
+    public void checkEngine() {
+        System.out.println("Проверяем двигатель");
     }
+
 }
